@@ -70,7 +70,7 @@ The system is designed to answer multi-hop questions requiring information from 
 ![alt text](image.png)
 
 ## Demo
-![Deep Thinking RAG Demo](demo/DeepRAG_reduced.gif)
+![Deep Thinking RAG Demo](demo/DeepRAG_reduced.mp4)
 
 
 ### Agent Responsibilities
