@@ -1,0 +1,259 @@
+# ===========================
+# Advanced Deep Thinking RAG
+# .gitignore
+# ===========================
+
+# ============================================
+# ENVIRONMENT & SECRETS
+# ============================================
+.env
+.env.local
+.env.*.local
+*.key
+secrets/
+credentials.json
+
+# ============================================
+# PYTHON / BACKEND
+# ============================================
+
+# Virtual Environment
+rag/
+venv/
+env/
+ENV/
+.venv/
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / Packaging
+*.egg
+*.egg-info/
+dist/
+build/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.dist-info/
+MANIFEST
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Unit test / coverage
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+coverage.xml
+*.cover
+.hypothesis/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*.ipynb
+
+# pyenv
+.python-version
+
+# ============================================
+# DATA & VECTOR STORES
+# ============================================
+
+# Downloaded documents (can be regenerated)
+backend/data/*.html
+backend/data/*.txt
+backend/data/*.pdf
+
+# Vector stores (built from build_vector_store.py)
+backend/chroma_db/
+backend/vector_store/
+backend/*.pkl
+backend/bm25_index.pkl
+
+# Evaluation results (optional - remove if you want to track)
+backend/evaluation_results.csv
+
+# ============================================
+# NODE.JS / FRONTEND
+# ============================================
+
+# Dependencies
+frontend/node_modules/
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.pnpm-debug.log*
+
+# Production build
+frontend/build/
+frontend/dist/
+
+# Testing
+coverage/
+
+# Next.js (if using)
+.next/
+out/
+
+# Nuxt.js
+.nuxt/
+
+# Gatsby
+.cache/
+public/
+
+# Package manager lock files (optional - remove if tracking)
+# frontend/package-lock.json
+# frontend/yarn.lock
+
+# ============================================
+# IDE & EDITORS
+# ============================================
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# PyCharm
+.idea/
+*.iml
+*.iws
+.idea_modules/
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+*.swp
+*.swo
+*~
+
+# Emacs
+*~
+\#*\#
+.\#*
+
+# ============================================
+# OPERATING SYSTEM
+# ============================================
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+*~
+.directory
+
+# ============================================
+# LOGS & TEMPORARY FILES
+# ============================================
+
+# Log files
+*.log
+logs/
+*.log.*
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.swp
+*.swo
+
+# ============================================
+# DOCKER
+# ============================================
+
+# Docker
+*.dockerfile.swp
+docker-compose.override.yml
+
+# ============================================
+# MISC
+# ============================================
+
+# Compiled files
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# Archives
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# Databases
+*.sqlite
+*.db
+
+# ML Models (large files)
+*.h5
+*.hdf5
+*.pb
+*.pt
+*.pth
+*.ckpt
+
+# Notebooks checkpoints
+.ipynb_checkpoints/
+
+# ============================================
+# PROJECT-SPECIFIC
+# ============================================
+
+# LangSmith traces (if enabled)
+.langsmith/
+
+# Experiment tracking
+experiments/
+runs/
+mlruns/
+
+# Cached embeddings
+*.cache
+.cache/
+
+# Downloaded models
+models/
+pretrained/
+
+# Test outputs
+test_outputs/
+outputs/
+
+# ============================================
+# KEEP THESE FILES (Examples)
+# ============================================
+# !backend/data/.gitkeep
+# !backend/chroma_db/.gitkeep
+# !.env.example
