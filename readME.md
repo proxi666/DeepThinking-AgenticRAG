@@ -69,6 +69,9 @@ The system is designed to answer multi-hop questions requiring information from 
 ## 🏗️ Architecture
 ![alt text](image.png)
 
+## Demo
+<video controls src="demo/DeepRAG_reduced.mp4" title="Title"></video>
+
 
 ### Agent Responsibilities
 
