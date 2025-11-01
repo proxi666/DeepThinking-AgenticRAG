@@ -100,8 +100,18 @@ def load_persistent_stores():
         embedding_function=embedding_function
     )
     # This creates the retriever that the rest of our app will use
-    baseline_retriever = baseline_vs.as_retriever(search_kwargs={"k": 3})
-    print("Baseline vector store loaded.")
+    baseline_retriever = baseline_vs.as_retriever(search_kwargs={"k": 10})
+    print(f"DEBUG: Created baseline_retriever with k=10")
+
+    # ADD TEST
+    print("\n🧪 Testing baseline retriever...")
+    test_query = "What are NVIDIA's main risks?"
+    test_docs = baseline_retriever.invoke(test_query)
+    print(f"   Test retrieval returned {len(test_docs)} documents")
+    if test_docs:
+        print(f"   First doc preview: {test_docs[0].page_content[:100]}...")
+    else:
+        print("   ⚠️ WARNING: Test retrieval returned NO documents!")
 
     # --- Load Advanced Store from Disk ---
     print("\nLoading advanced vector store from disk...")

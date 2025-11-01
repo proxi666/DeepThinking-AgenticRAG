@@ -1,0 +1,15 @@
+================================================================================
+GEMINI 2.5 FLASH - RAGAs EVALUATION SUMMARY
+================================================================================
+
+Evaluation Model: Gemini 2.5 Flash
+Embedding Model: Gemini Embedding 001
+Test Queries: 5
+
+            Metric Baseline RAG Deep Thinking RAG Improvement
+      Faithfulness        0.345             0.534      +54.9%
+    Context Recall        0.117             0.150      +28.3%
+ Context Precision          nan             0.299       +nan%
+Answer Correctness        0.491             0.500       +1.8%
+
+================================================================================

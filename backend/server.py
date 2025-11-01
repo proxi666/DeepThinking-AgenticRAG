@@ -109,11 +109,28 @@ async def process_baseline_query(request: QueryRequest) -> Dict:
     Processes a query using ONLY the baseline RAG pipeline.
     """
     try:
-        print(f"Received baseline query: {request.query}")
+        print(f"\n{'='*80}")
+        print(f"📥 Received baseline query: {request.query[:100]}...")
+        print(f"{'='*80}")
+        
         result = await asyncio.to_thread(run_baseline_rag, request.query)
+        
+        # ADD DEBUG
+        print(f"\n{'='*80}")
+        print(f"📤 SERVER RESPONSE DEBUG:")
+        print(f"   Result type: {type(result)}")
+        print(f"   Result keys: {result.keys()}")
+        print(f"   Answer length: {len(result.get('baseline_output', ''))}")
+        print(f"   Contexts count: {len(result.get('contexts', []))}")
+        if result.get('contexts'):
+            print(f"   First context preview: {result['contexts'][0][:100]}...")
+        print(f"{'='*80}\n")
+        
         return result
     except Exception as e:
-        print(f"An error occurred: {e}")
+        print(f"❌ ERROR: {e}")
+        import traceback
+        traceback.print_exc()
         raise HTTPException(status_code=500, detail=str(e))
 
 ### NEW ENDPOINT 2: DEEP THINKING RAG (STREAMING) ###

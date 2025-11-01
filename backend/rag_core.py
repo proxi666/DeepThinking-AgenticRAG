@@ -80,18 +80,39 @@ def run_baseline_rag(query: str) -> dict:
 
     print("\n--- Executing Baseline RAG ---")
     
+    # ADD DEBUG: Check if retriever exists
+    if baseline_retriever is None:
+        print("❌ ERROR: baseline_retriever is None!")
+        return {"baseline_output": "", "contexts": []}
+    
     # First, retrieve the documents separately to capture them
+    print(f"DEBUG: Invoking baseline_retriever with query: {query[:100]}...")
     retrieved_docs = baseline_retriever.invoke(query)
+    print(f"DEBUG: Retrieved {len(retrieved_docs)} documents")
+    
+    # ADD DEBUG: Print first doc preview
+    if retrieved_docs:
+        print(f"DEBUG: First doc preview: {retrieved_docs[0].page_content[:150]}...")
+    else:
+        print("⚠️ WARNING: No documents retrieved by baseline_retriever!")
     
     # Then, run the full chain to get the answer
     baseline_result = baseline_rag_chain.invoke(query)
     console.print(Markdown(baseline_result))
     
-    return {
+    # Convert to contexts
+    contexts = [doc.page_content for doc in retrieved_docs]
+    print(f"DEBUG: Prepared {len(contexts)} contexts for return")
+    
+    result = {
         "baseline_output": baseline_result,
-        # Convert Document objects to a serializable format (their page content)
-        "contexts": [doc.page_content for doc in retrieved_docs]
+        "contexts": contexts
     }
+    
+    print(f"DEBUG: Returning dict with keys: {result.keys()}")
+    print(f"DEBUG: contexts field has {len(result['contexts'])} items")
+    
+    return result
 
 
 # def get_deep_thinking_stream(query: str):
